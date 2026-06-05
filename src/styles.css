@@ -10,6 +10,7 @@
 }
 
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body { margin: 0; font-family: Inter, Arial, sans-serif; color: var(--text); background: var(--bg); }
 a { color: inherit; }
 .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
@@ -17,23 +18,37 @@ a { color: inherit; }
 .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; gap: 16px; }
 .brand { display: flex; gap: 10px; align-items: center; font-weight: 800; font-size: 18px; }
 .phone { color: #806500; font-weight: 700; text-decoration: none; }
+
 .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 680px; }
 .hero-copy { padding: 80px clamp(24px, 5vw, 80px); display: flex; flex-direction: column; justify-content: center; }
 h1 { font-family: Poppins, Inter, sans-serif; font-size: clamp(40px, 5vw, 64px); line-height: 1.02; margin: 0 0 20px; letter-spacing: -1.8px; }
 .lead { font-size: 19px; line-height: 1.65; color: var(--muted); max-width: 620px; margin: 0 0 28px; }
 .btn { display: inline-flex; justify-content: center; align-items: center; border-radius: 14px; background: var(--accent); color: #111; padding: 16px 22px; font-weight: 900; text-decoration: none; box-shadow: 0 12px 28px rgba(234,179,8,.28); transition: .18s ease; }
 .btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
-.hero-visual { min-height: 460px; display: flex; align-items: center; justify-content: center; padding: 32px; background: radial-gradient(circle at 70% 20%, rgba(250,204,21,.45), transparent 34%), linear-gradient(135deg, #fff7cc, #fff, #facc15); }
-.visual-card { max-width: 390px; background: rgba(255,255,255,.82); border: 1px solid rgba(234,179,8,.45); box-shadow: 0 24px 70px rgba(0,0,0,.12); border-radius: 30px; padding: 40px; text-align: center; }
+
+.hero-visual { min-height: 460px; display: flex; align-items: flex-end; justify-content: flex-start; padding: 32px; background: radial-gradient(circle at 75% 18%, rgba(250,204,21,.45), transparent 32%), linear-gradient(135deg, #fff8d6, #fff, #facc15); position: relative; overflow: hidden; }
+.hero-visual::before { content: ""; position: absolute; right: 58px; top: 70px; width: 420px; height: 420px; border-radius: 34px; background: linear-gradient(160deg, rgba(255,255,255,.96), rgba(255,248,214,.94)); border: 1px solid rgba(234,179,8,.45); box-shadow: 0 24px 70px rgba(0,0,0,.12); }
+.hero-visual::after { content: "🛠️\A 🧰\A 🪚"; white-space: pre; position: absolute; right: 145px; top: 125px; font-size: 78px; line-height: 1.22; filter: drop-shadow(0 14px 20px rgba(0,0,0,.12)); }
+.visual-card { max-width: 390px; background: rgba(255,255,255,.9); border: 1px solid rgba(234,179,8,.45); box-shadow: 0 24px 70px rgba(0,0,0,.12); border-radius: 30px; padding: 32px; text-align: left; position: relative; z-index: 1; backdrop-filter: blur(6px); }
 .icon { font-size: 68px; margin-bottom: 16px; }
 .visual-card h2 { margin: 0 0 10px; font-size: 28px; }
 .visual-card p { margin: 0; color: var(--muted); line-height: 1.5; }
+
 .section { padding: 82px 0; }
 .section.soft { background: var(--soft); }
 h2 { font-family: Poppins, Inter, sans-serif; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -1px; margin: 0 0 22px; }
 .text { color: var(--muted); font-size: 18px; line-height: 1.7; max-width: 860px; }
 .grid { display: grid; gap: 18px; }
-.services { grid-template-columns: repeat(3, 1fr); margin-top: 34px; }
+
+.services, .benefits { grid-template-columns: repeat(3, 1fr); margin-top: 34px; }
+.services::before, .benefits::before, .cta .container::before { content: ""; display: block; grid-column: 1 / -1; min-height: 350px; border-radius: 28px; margin-bottom: 10px; border: 1px solid rgba(0,0,0,.06); box-shadow: 0 20px 50px rgba(0,0,0,.10); background-size: cover; background-position: center; }
+.services::before { background: radial-gradient(circle at 20% 35%, rgba(250,204,21,.55), transparent 24%), linear-gradient(135deg, #fffdf2, #fef3c7); }
+.services::after { content: "🛏️  Montagem de camas   📺  Painéis de TV   🗄️  Armários"; grid-column: 1 / -1; margin-top: -230px; margin-bottom: 142px; text-align: center; font-size: clamp(24px, 3vw, 38px); font-weight: 900; color: #111827; }
+.benefits::before { background: radial-gradient(circle at 80% 28%, rgba(250,204,21,.55), transparent 26%), linear-gradient(135deg, #fff, #fffbeb); }
+.benefits::after { content: "★★★★★\A Cliente satisfeito • Serviço organizado • Atendimento direto"; white-space: pre; grid-column: 1 / -1; margin-top: -245px; margin-bottom: 145px; text-align: center; font-size: clamp(25px, 3.2vw, 42px); font-weight: 900; color: #111827; line-height: 1.55; }
+.cta .container::before { background: radial-gradient(circle at 25% 45%, rgba(22,163,74,.20), transparent 24%), radial-gradient(circle at 75% 25%, rgba(250,204,21,.50), transparent 25%), linear-gradient(135deg, #fff, #fff7cc); }
+.cta .container::after { content: "📱\A Envie a foto do móvel pelo WhatsApp"; white-space: pre; display: block; margin-top: -285px; margin-bottom: 155px; text-align: center; font-size: clamp(28px, 4vw, 54px); line-height: 1.25; font-weight: 900; color: #111827; }
+
 .service, .benefit, .step { background: white; border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: 0 10px 24px rgba(0,0,0,.035); }
 .service { font-weight: 800; display: flex; gap: 12px; align-items: flex-start; }
 .check { color: #ca8a04; font-weight: 900; }
@@ -41,8 +56,8 @@ h2 { font-family: Poppins, Inter, sans-serif; font-size: clamp(30px, 3.4vw, 44px
 .num { width: 46px; height: 46px; border-radius: 999px; background: var(--accent); display: grid; place-items: center; font-weight: 900; margin-bottom: 16px; }
 .step h3, .benefit h3 { margin: 0 0 8px; font-size: 18px; }
 .step p, .benefit p { margin: 0; color: var(--muted); line-height: 1.55; }
-.benefits { grid-template-columns: repeat(5, 1fr); margin-top: 34px; }
 .cta { background: linear-gradient(135deg, #fff, #fffbeb); text-align: center; }
+.cta .container { max-width: 980px; }
 .contact-card { display: inline-block; background: white; border: 1px solid var(--line); border-radius: 18px; padding: 24px 34px; margin: 16px 0 26px; box-shadow: 0 12px 30px rgba(0,0,0,.05); }
 .contact-card p { margin: 7px 0; }
 .footer { background: var(--dark); color: white; padding: 34px 0; text-align: center; }
@@ -52,6 +67,12 @@ h2 { font-family: Poppins, Inter, sans-serif; font-size: clamp(30px, 3.4vw, 44px
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
   .hero-copy { padding: 58px 24px; }
+  .hero-visual::before { right: 24px; width: 260px; height: 260px; }
+  .hero-visual::after { right: 76px; top: 115px; font-size: 54px; }
   .services, .steps, .benefits { grid-template-columns: 1fr; }
   .section { padding: 58px 0; }
+  .services::before, .benefits::before, .cta .container::before { min-height: 260px; }
+  .services::after { margin-top: -185px; margin-bottom: 90px; }
+  .benefits::after { margin-top: -200px; margin-bottom: 95px; }
+  .cta .container::after { margin-top: -220px; margin-bottom: 110px; }
 }
