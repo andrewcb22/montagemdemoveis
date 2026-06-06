@@ -26,9 +26,9 @@ h1 { font-family: Poppins, Inter, sans-serif; font-size: clamp(40px, 5vw, 64px);
 .btn { display: inline-flex; justify-content: center; align-items: center; border-radius: 14px; background: var(--accent); color: #111; padding: 16px 22px; font-weight: 900; text-decoration: none; box-shadow: 0 12px 28px rgba(234,179,8,.28); transition: .18s ease; }
 .btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
-.hero-visual { min-height: 460px; display: flex; align-items: center; justify-content: center; padding: 32px; background: radial-gradient(circle at 70% 20%, rgba(250,204,21,.45), transparent 34%), linear-gradient(135deg, #fff7cc, #fff, #facc15); }
-.visual-card { max-width: 420px; background: rgba(255,255,255,.92); border: 1px solid rgba(234,179,8,.45); box-shadow: 0 24px 70px rgba(0,0,0,.12); border-radius: 30px; padding: 40px; text-align: center; }
-.icon { font-size: 68px; margin-bottom: 16px; }
+.hero-visual { min-height: 460px; display: flex; align-items: flex-end; justify-content: flex-start; padding: 32px; background-image: linear-gradient(to top, rgba(0,0,0,.18), rgba(0,0,0,.02)), url('/assets/hero-montagem.svg'); background-size: cover; background-position: center; }
+.visual-card { max-width: 390px; background: rgba(255,255,255,.92); border: 1px solid rgba(234,179,8,.45); box-shadow: 0 24px 70px rgba(0,0,0,.18); border-radius: 24px; padding: 28px; text-align: left; backdrop-filter: blur(6px); }
+.icon { display: none; }
 .visual-card h2 { margin: 0 0 10px; font-size: 28px; }
 .visual-card p { margin: 0; color: var(--muted); line-height: 1.5; }
 
@@ -63,4 +63,5 @@ h2 { font-family: Poppins, Inter, sans-serif; font-size: clamp(30px, 3.4vw, 44px
   .hero-copy { padding: 58px 24px; }
   .services, .steps, .benefits { grid-template-columns: 1fr; }
   .section { padding: 58px 0; }
+  .hero-visual { min-height: 360px; }
 }
