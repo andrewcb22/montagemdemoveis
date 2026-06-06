@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile, copyFile } from "node:fs/promises";
 
-const googleTagId = process.env.VITE_GOOGLE_TAG_ID || "";
+const googleTagId = process.env.VITE_GOOGLE_TAG_ID || "AW-18175297772";
 const whatsappConversionSendTo = process.env.VITE_GOOGLE_ADS_WHATSAPP_SEND_TO || "";
 
 await mkdir("dist", { recursive: true });
