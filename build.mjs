@@ -4,6 +4,7 @@ const googleTagId = process.env.VITE_GOOGLE_TAG_ID || "AW-18175297772";
 const whatsappConversionSendTo = process.env.VITE_GOOGLE_ADS_WHATSAPP_SEND_TO || "AW-18175297772/AkxBCNLqpLgcEOyR1NpD";
 
 await mkdir("dist", { recursive: true });
+await mkdir("dist/assets", { recursive: true });
 
 let html = await readFile("src/index.html", "utf8");
 let headTag = "";
@@ -17,3 +18,4 @@ html = html.replace("<!-- GOOGLE_TAG_PLACEHOLDER -->", headTag);
 await writeFile("dist/index.html", html);
 await copyFile("src/styles.css", "dist/styles.css");
 await copyFile("src/script.js", "dist/script.js");
+await copyFile("src/assets/hero-montagem.svg", "dist/assets/hero-montagem.svg");
