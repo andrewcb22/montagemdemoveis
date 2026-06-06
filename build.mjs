@@ -18,4 +18,4 @@ html = html.replace("<!-- GOOGLE_TAG_PLACEHOLDER -->", headTag);
 await writeFile("dist/index.html", html);
 await copyFile("src/styles.css", "dist/styles.css");
 await copyFile("src/script.js", "dist/script.js");
-await copyFile("src/assets/hero-montagem.svg", "dist/assets/hero-montagem.svg");
+await copyFile("src/assets/hero-photo.svg", "dist/assets/hero-photo.svg");
